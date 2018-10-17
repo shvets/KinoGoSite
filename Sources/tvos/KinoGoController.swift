@@ -89,7 +89,7 @@ open class KinoGoController: UICollectionViewController, UICollectionViewDelegat
 
         switch mediaItem.name! {
         case "Collections":
-          performSegue(withIdentifier: CollectionsController.SegueIdentifier, sender: view)
+          performSegue(withIdentifier: CategoriesController.SegueIdentifier, sender: view)
 
         case "User Collections":
           performSegue(withIdentifier: UserCollectionsController.SegueIdentifier, sender: view)

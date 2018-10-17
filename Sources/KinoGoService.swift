@@ -6,7 +6,7 @@ public class KinoGoService {
     return KinoGoAPI()
   }()
 
-  static let bookmarksFileName = NSHomeDirectory() + "/Library/Caches/kinogoo-bookmarks.json"
+  static let bookmarksFileName = NSHomeDirectory() + "/Library/Caches/kinogo-bookmarks.json"
   static let historyFileName = NSHomeDirectory() + "/Library/Caches/kinogo-history.json"
 
   public static let StoryboardId = "KinoGo"
@@ -29,7 +29,7 @@ public class KinoGoService {
   func buildLayout() -> UICollectionViewFlowLayout? {
     let layout = UICollectionViewFlowLayout()
 
-    layout.itemSize = CGSize(width: 180*1.6, height: 248*1.6) // 180 x 248
+    layout.itemSize = CGSize(width: 220*1.6, height: 303*1.6) // 220 x 303
     layout.sectionInset = UIEdgeInsets(top: 40.0, left: 40.0, bottom: 120.0, right: 40.0)
     layout.minimumInteritemSpacing = 40.0
     layout.minimumLineSpacing = 85.0
@@ -46,7 +46,7 @@ public class KinoGoService {
   func getConfiguration() -> [String: Any] {
     var conf = [String: Any]()
 
-    conf["pageSize"] = 20
+    conf["pageSize"] = 12
 
     if mobile {
       conf["rowSize"] = 1

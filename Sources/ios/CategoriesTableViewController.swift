@@ -2,8 +2,8 @@ import UIKit
 import TVSetKit
 import PageLoader
 
-class CollectionsTableViewController: UITableViewController {
-  static let SegueIdentifier = "Collections"
+class CategoriesTableViewController: UITableViewController {
+  static let SegueIdentifier = "Categories"
 
   let CellIdentifier = "CollectionsTableCell"
 

@@ -45,10 +45,10 @@ class KinoGoDataSource: DataSource {
         items = Observable.just(adjustItems(data))
       }
 
-    case "New Movies":
-      if let data = try service.getNewMovies(page: currentPage)["movies"] as? [Any] {
-        items = Observable.just(adjustItems(data))
-      }
+//    case "New Movies":
+//      if let data = try service.getNewMovies(page: currentPage)["movies"] as? [Any] {
+//        items = Observable.just(adjustItems(data))
+//      }
 
     case "All Series":
       if let data = try service.getAllSeries(page: currentPage)["movies"] as? [Any] {
@@ -70,76 +70,76 @@ class KinoGoDataSource: DataSource {
         items = Observable.just(adjustItems(data))
       }
 
-    case "Seasons":
-      if let selectedItem = selectedItem,
-         let path = selectedItem.id {
-        let seasons = try service.getSeasons(path, selectedItem.thumb) as! [[String: String]]
-
-        if seasons.count == 1 {
-          let path = seasons[0]["id"]!
-
-          let files = try service.getUrls(path)
-
-          if files.count > 0 {
-            var episodes = [KinoGoAPI.Episode]()
-            episodes.append(service.buildEpisode(comment: selectedItem.name!, files: files))
-
-            items = Observable.just(adjustItems(episodes, selectedItem: selectedItem))
-          }
-          else {
-            items = Observable.just(adjustItems(seasons, selectedItem: selectedItem))
-          }
-        }
-        else {
-          items = Observable.just(adjustItems(seasons, selectedItem: selectedItem))
-        }
-      }
-
-    case "Episodes":
-      if let selectedItem = selectedItem,
-         let path = selectedItem.id {
-        let playlistUrl = try service.getSeasonPlaylistUrl(path)
-
-        let pageSize = params["pageSize"] as! Int
-
-        let episodes = try service.getEpisodes(playlistUrl, path: "")
-
-        var episodesOnPage: [KinoGoAPI.Episode] = []
-
-        for (index, item) in episodes.enumerated() {
-          if index >= (currentPage - 1) * pageSize && index < currentPage * pageSize {
-            episodesOnPage.append(item)
-          }
-        }
-
-        items = Observable.just(adjustItems(episodesOnPage, selectedItem: selectedItem))
-      }
-
-    case "Collections":
-      let collections = try service.getCollections()
-
-      items = Observable.just(adjustItems(collections))
-
-    case "Collection":
-      if let selectedItem = selectedItem,
-         let path = selectedItem.id {
-        if let data = try service.getCollection(path, page: currentPage)["movies"] as? [Any] {
-          items = Observable.just(adjustItems(data))
-        }
-      }
-
-    case "User Collections":
-      let collections = try service.getUserCollections()
-
-      items = Observable.just(adjustItems(collections))
-
-    case "User Collection":
-      if let selectedItem = selectedItem,
-         let path = selectedItem.id {
-        if let data = try service.getUserCollection(path, page: currentPage)["movies"] as? [Any] {
-          items = Observable.just(adjustItems(data))
-        }
-      }
+//    case "Seasons":
+//      if let selectedItem = selectedItem,
+//         let path = selectedItem.id {
+//        let seasons = try service.getSeasons(path, selectedItem.thumb) as! [[String: String]]
+//
+//        if seasons.count == 1 {
+//          let path = seasons[0]["id"]!
+//
+//          let files = try service.getUrls(path)
+//
+//          if files.count > 0 {
+//            var episodes = [KinoGoAPI.Episode]()
+//            episodes.append(service.buildEpisode(comment: selectedItem.name!, files: files))
+//
+//            items = Observable.just(adjustItems(episodes, selectedItem: selectedItem))
+//          }
+//          else {
+//            items = Observable.just(adjustItems(seasons, selectedItem: selectedItem))
+//          }
+//        }
+//        else {
+//          items = Observable.just(adjustItems(seasons, selectedItem: selectedItem))
+//        }
+//      }
+//
+//    case "Episodes":
+//      if let selectedItem = selectedItem,
+//         let path = selectedItem.id {
+//        let playlistUrl = try service.getSeasonPlaylistUrl(path)
+//
+//        let pageSize = params["pageSize"] as! Int
+//
+//        let episodes = try service.getEpisodes(playlistUrl, path: "")
+//
+//        var episodesOnPage: [KinoGoAPI.Episode] = []
+//
+//        for (index, item) in episodes.enumerated() {
+//          if index >= (currentPage - 1) * pageSize && index < currentPage * pageSize {
+//            episodesOnPage.append(item)
+//          }
+//        }
+//
+//        items = Observable.just(adjustItems(episodesOnPage, selectedItem: selectedItem))
+//      }
+//
+//    case "Collections":
+//      let collections = try service.getCollections()
+//
+//      items = Observable.just(adjustItems(collections))
+//
+//    case "Collection":
+//      if let selectedItem = selectedItem,
+//         let path = selectedItem.id {
+//        if let data = try service.getCollection(path, page: currentPage)["movies"] as? [Any] {
+//          items = Observable.just(adjustItems(data))
+//        }
+//      }
+//
+//    case "User Collections":
+//      let collections = try service.getUserCollections()
+//
+//      items = Observable.just(adjustItems(collections))
+//
+//    case "User Collection":
+//      if let selectedItem = selectedItem,
+//         let path = selectedItem.id {
+//        if let data = try service.getUserCollection(path, page: currentPage)["movies"] as? [Any] {
+//          items = Observable.just(adjustItems(data))
+//        }
+//      }
 
     case "Search":
       if let query = params["query"] as? String {
@@ -242,7 +242,7 @@ class KinoGoDataSource: DataSource {
     func createEpisodeItem(_ item: KinoGoAPI.Episode, selectedItem: MediaItem) -> Item {
     let newItem = KinoGoMediaItem(data: ["name": ""])
 
-    newItem.name = item.name
+    //newItem.name = item.name
     newItem.id = item.files[0]
     newItem.type = "episode"
     newItem.files = item.files

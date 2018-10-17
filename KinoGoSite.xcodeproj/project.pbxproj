@@ -27,7 +27,7 @@
 		FAAFE49D1EA3F42C0092387A /* Wrap.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = FAAFE4951EA3F42C0092387A /* Wrap.framework */; };
 		FAAFE5061EA6E2C20092387A /* CollectionsController.swift in Sources */ = {isa = PBXBuildFile; fileRef = FAAFE4FE1EA6E2C10092387A /* CollectionsController.swift */; };
 		FAAFE5091EA6E2C20092387A /* SettingsController.swift in Sources */ = {isa = PBXBuildFile; fileRef = FAAFE5011EA6E2C10092387A /* SettingsController.swift */; };
-		FAAFE5171EA6E2CC0092387A /* CollectionsTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = FAAFE50F1EA6E2CC0092387A /* CollectionsTableViewController.swift */; };
+		FAAFE5171EA6E2CC0092387A /* CategoriesTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = FAAFE50F1EA6E2CC0092387A /* CategoriesTableViewController.swift */; };
 		FAAFE5191EA6E2CC0092387A /* SettingsTableController.swift in Sources */ = {isa = PBXBuildFile; fileRef = FAAFE5111EA6E2CC0092387A /* SettingsTableController.swift */; };
 /* End PBXBuildFile section */
 
@@ -56,7 +56,7 @@
 		FAAFE4951EA3F42C0092387A /* Wrap.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Wrap.framework; path = "../../../../../../../Library/Developer/Xcode/DerivedData/EtvnetApp-auvgeykttffxrlaelzqpbfeqnwis/Build/Products/Debug-iphonesimulator/Wrap.framework"; sourceTree = "<group>"; };
 		FAAFE4FE1EA6E2C10092387A /* CollectionsController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CollectionsController.swift; sourceTree = "<group>"; };
 		FAAFE5011EA6E2C10092387A /* SettingsController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SettingsController.swift; sourceTree = "<group>"; };
-		FAAFE50F1EA6E2CC0092387A /* CollectionsTableViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CollectionsTableViewController.swift; sourceTree = "<group>"; };
+		FAAFE50F1EA6E2CC0092387A /* CategoriesTableViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CategoriesTableViewController.swift; sourceTree = "<group>"; };
 		FAAFE5111EA6E2CC0092387A /* SettingsTableController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SettingsTableController.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -132,7 +132,7 @@
 			isa = PBXGroup;
 			children = (
 				FAAAE40D20D3416D00F1FF4C /* KinoGoTableViewController.swift */,
-				FAAFE50F1EA6E2CC0092387A /* CollectionsTableViewController.swift */,
+				FAAFE50F1EA6E2CC0092387A /* CategoriesTableViewController.swift */,
 				FAAFE5111EA6E2CC0092387A /* SettingsTableController.swift */,
 				2DBA1DB4D6978460D0D1F83D /* UserCollectionsTableViewController.swift */,
 			);
@@ -235,7 +235,7 @@
 			files = (
 				FAAAE40E20D3416E00F1FF4C /* KinoGoTableViewController.swift in Sources */,
 				FAAFE5091EA6E2C20092387A /* SettingsController.swift in Sources */,
-				FAAFE5171EA6E2CC0092387A /* CollectionsTableViewController.swift in Sources */,
+				FAAFE5171EA6E2CC0092387A /* CategoriesTableViewController.swift in Sources */,
 				FAAFE5191EA6E2CC0092387A /* SettingsTableController.swift in Sources */,
 				FAAAE40920D3413B00F1FF4C /* KinoGoDataSource.swift in Sources */,
 				FAAAE40A20D3413B00F1FF4C /* KinoGoService.swift in Sources */,

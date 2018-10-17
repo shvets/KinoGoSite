@@ -2,8 +2,8 @@ import UIKit
 import TVSetKit
 import PageLoader
 
-class CollectionsController: UICollectionViewController, UICollectionViewDelegateFlowLayout {
-  static let SegueIdentifier = "Collections"
+class CategoriesController: UICollectionViewController, UICollectionViewDelegateFlowLayout {
+  static let SegueIdentifier = "Categories"
   let CellIdentifier = "CollectionsCell"
 
 #if os(tvOS)

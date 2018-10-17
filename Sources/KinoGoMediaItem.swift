@@ -48,5 +48,13 @@ class KinoGoMediaItem: MediaItem {
 
     return bitrates
   }
+  
+  override func getRequestHeaders() -> [String: String] {
+    var headers: [String : String] = [:]
+    
+    headers["Cookie"] = "cdn1.kinogo.by-UID=e542b6bdfdd1e1e0775516eeded40d37"
+    
+    return headers
+  }
 
 }
