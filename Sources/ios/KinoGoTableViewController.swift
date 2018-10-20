@@ -32,7 +32,7 @@ open class KinoGoTableViewController: UITableViewController {
       MediaName(name: "Bookmarks", imageName: "Star"),
       MediaName(name: "History", imageName: "Bookmark"),
       MediaName(name: "All Movies", imageName: "Retro TV"),
-      MediaName(name: "New Movies", imageName: "Retro TV"),
+      MediaName(name: "Premier Movies", imageName: "Retro TV"),
       MediaName(name: "Last Movies", imageName: "Retro TV"),
       MediaName(name: "All Series", imageName: "Retro TV"),
       MediaName(name: "Animations", imageName: "Retro TV"),

@@ -6,12 +6,12 @@ import RxSwift
 class KinoGoDataSource: DataSource {
   let service = KinoGoService.shared
 
+  var seasons = [KinoGoAPI.Season]()
+  
   override open func load(params: Parameters) throws -> Observable<[Any]> {
     var items: Observable<[Any]> = Observable.just([])
 
     let selectedItem = params["selectedItem"] as? MediaItem
-
-    // var episodes = [KinoGoAPI.Episode]()
 
     var request = params["requestType"] as! String
     let currentPage = params["currentPage"] as? Int ?? 1
@@ -45,10 +45,15 @@ class KinoGoDataSource: DataSource {
         items = Observable.just(adjustItems(data))
       }
 
-//    case "New Movies":
-//      if let data = try service.getNewMovies(page: currentPage)["movies"] as? [Any] {
-//        items = Observable.just(adjustItems(data))
-//      }
+    case "Premier Movies":
+      if let data = try service.getPremierMovies(page: currentPage)["movies"] as? [Any] {
+        items = Observable.just(adjustItems(data))
+      }
+      
+    case "Last Movies":
+      if let data = try service.getLastMovies(page: currentPage)["movies"] as? [Any] {
+        items = Observable.just(adjustItems(data))
+      }
 
     case "All Series":
       if let data = try service.getAllSeries(page: currentPage)["movies"] as? [Any] {
@@ -65,17 +70,17 @@ class KinoGoDataSource: DataSource {
         items = Observable.just(adjustItems(data))
       }
 
-    case "Shows":
+    case "TV Shows":
       if let data = try service.getTvShows(page: currentPage)["movies"] as? [Any] {
         items = Observable.just(adjustItems(data))
       }
 
-//    case "Seasons":
-//      if let selectedItem = selectedItem,
-//         let path = selectedItem.id {
-//        let seasons = try service.getSeasons(path, selectedItem.thumb) as! [[String: String]]
-//
-//        if seasons.count == 1 {
+    case "Seasons":
+      if let selectedItem = selectedItem,
+         let path = selectedItem.id {
+        seasons = try service.getSeasons(path, selectedItem.name!, selectedItem.thumb)
+
+ //       if seasons.count == 1 {
 //          let path = seasons[0]["id"]!
 //
 //          let files = try service.getUrls(path)
@@ -90,14 +95,17 @@ class KinoGoDataSource: DataSource {
 //            items = Observable.just(adjustItems(seasons, selectedItem: selectedItem))
 //          }
 //        }
-//        else {
-//          items = Observable.just(adjustItems(seasons, selectedItem: selectedItem))
-//        }
-//      }
-//
-//    case "Episodes":
-//      if let selectedItem = selectedItem,
-//         let path = selectedItem.id {
+ //       else {
+          items = Observable.just(adjustItems(seasons, selectedItem: selectedItem))
+ //       }
+      }
+
+    case "Episodes":
+      if let selectedItem = selectedItem {
+         //let path = selectedItem.id {
+//        seasons = try service.getSeasons(path, selectedItem.name!, selectedItem.thumb)
+//        print("Seasons: \(seasons)")
+        
 //        let playlistUrl = try service.getSeasonPlaylistUrl(path)
 //
 //        let pageSize = params["pageSize"] as! Int
@@ -112,9 +120,15 @@ class KinoGoDataSource: DataSource {
 //          }
 //        }
 //
-//        items = Observable.just(adjustItems(episodesOnPage, selectedItem: selectedItem))
-//      }
-//
+        let episodes = (selectedItem as! KinoGoMediaItem).episodes
+        
+        items = Observable.just(adjustItems(episodes, selectedItem: selectedItem))
+      }
+
+
+      case "Categories":
+        print("Categories")
+
 //    case "Collections":
 //      let collections = try service.getCollections()
 //
@@ -239,10 +253,10 @@ class KinoGoDataSource: DataSource {
     return newItem
   }
 
-    func createEpisodeItem(_ item: KinoGoAPI.Episode, selectedItem: MediaItem) -> Item {
+  func createEpisodeItem(_ item: KinoGoAPI.Episode, selectedItem: MediaItem) -> Item {
     let newItem = KinoGoMediaItem(data: ["name": ""])
 
-    //newItem.name = item.name
+    newItem.name = item.comment
     newItem.id = item.files[0]
     newItem.type = "episode"
     newItem.files = item.files

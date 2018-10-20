@@ -25,7 +25,7 @@
 		FAAFE49B1EA3F42C0092387A /* Unbox.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = FAAFE4931EA3F42C0092387A /* Unbox.framework */; };
 		FAAFE49C1EA3F42C0092387A /* WebAPI.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = FAAFE4941EA3F42C0092387A /* WebAPI.framework */; };
 		FAAFE49D1EA3F42C0092387A /* Wrap.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = FAAFE4951EA3F42C0092387A /* Wrap.framework */; };
-		FAAFE5061EA6E2C20092387A /* CollectionsController.swift in Sources */ = {isa = PBXBuildFile; fileRef = FAAFE4FE1EA6E2C10092387A /* CollectionsController.swift */; };
+		FAAFE5061EA6E2C20092387A /* CategoriesController.swift in Sources */ = {isa = PBXBuildFile; fileRef = FAAFE4FE1EA6E2C10092387A /* CategoriesController.swift */; };
 		FAAFE5091EA6E2C20092387A /* SettingsController.swift in Sources */ = {isa = PBXBuildFile; fileRef = FAAFE5011EA6E2C10092387A /* SettingsController.swift */; };
 		FAAFE5171EA6E2CC0092387A /* CategoriesTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = FAAFE50F1EA6E2CC0092387A /* CategoriesTableViewController.swift */; };
 		FAAFE5191EA6E2CC0092387A /* SettingsTableController.swift in Sources */ = {isa = PBXBuildFile; fileRef = FAAFE5111EA6E2CC0092387A /* SettingsTableController.swift */; };
@@ -54,7 +54,7 @@
 		FAAFE4931EA3F42C0092387A /* Unbox.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Unbox.framework; path = "../../../../../../../Library/Developer/Xcode/DerivedData/EtvnetApp-auvgeykttffxrlaelzqpbfeqnwis/Build/Products/Debug-iphonesimulator/Unbox.framework"; sourceTree = "<group>"; };
 		FAAFE4941EA3F42C0092387A /* WebAPI.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = WebAPI.framework; path = "../WebAPI/build/Debug-appletvos/WebAPI.framework"; sourceTree = "<group>"; };
 		FAAFE4951EA3F42C0092387A /* Wrap.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Wrap.framework; path = "../../../../../../../Library/Developer/Xcode/DerivedData/EtvnetApp-auvgeykttffxrlaelzqpbfeqnwis/Build/Products/Debug-iphonesimulator/Wrap.framework"; sourceTree = "<group>"; };
-		FAAFE4FE1EA6E2C10092387A /* CollectionsController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CollectionsController.swift; sourceTree = "<group>"; };
+		FAAFE4FE1EA6E2C10092387A /* CategoriesController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CategoriesController.swift; sourceTree = "<group>"; };
 		FAAFE5011EA6E2C10092387A /* SettingsController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SettingsController.swift; sourceTree = "<group>"; };
 		FAAFE50F1EA6E2CC0092387A /* CategoriesTableViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CategoriesTableViewController.swift; sourceTree = "<group>"; };
 		FAAFE5111EA6E2CC0092387A /* SettingsTableController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SettingsTableController.swift; sourceTree = "<group>"; };
@@ -143,7 +143,7 @@
 			isa = PBXGroup;
 			children = (
 				FAAAE40B20D3415A00F1FF4C /* KinoGoController.swift */,
-				FAAFE4FE1EA6E2C10092387A /* CollectionsController.swift */,
+				FAAFE4FE1EA6E2C10092387A /* CategoriesController.swift */,
 				FAAFE5011EA6E2C10092387A /* SettingsController.swift */,
 				2DBA1FEA2A836B2A1C3E5854 /* UserCollectionsController.swift */,
 			);
@@ -239,7 +239,7 @@
 				FAAFE5191EA6E2CC0092387A /* SettingsTableController.swift in Sources */,
 				FAAAE40920D3413B00F1FF4C /* KinoGoDataSource.swift in Sources */,
 				FAAAE40A20D3413B00F1FF4C /* KinoGoService.swift in Sources */,
-				FAAFE5061EA6E2C20092387A /* CollectionsController.swift in Sources */,
+				FAAFE5061EA6E2C20092387A /* CategoriesController.swift in Sources */,
 				FAAAE40820D3413B00F1FF4C /* KinoGoMediaItem.swift in Sources */,
 				FAAAE40C20D3415A00F1FF4C /* KinoGoController.swift in Sources */,
 				FAAAE41220D341A600F1FF4C /* KinoGoSite.swift in Sources */,

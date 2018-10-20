@@ -31,7 +31,7 @@ class CategoriesTableViewController: UITableViewController {
 
     func load() throws -> [Any] {
       var params = Parameters()
-      params["requestType"] = "Collections"
+      params["requestType"] = "Categories"
 
       return try self.service.dataSource.loadAndWait(params: params)
     }

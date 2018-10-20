@@ -50,7 +50,7 @@ open class KinoGoController: UICollectionViewController, UICollectionViewDelegat
       MediaName(name: "Animations", imageName: "Retro TV"),
       MediaName(name: "Anime", imageName: "Retro TV"),
       MediaName(name: "Shows", imageName: "Briefcase"),
-      MediaName(name: "Collections", imageName: "Briefcase"),
+      MediaName(name: "Categories", imageName: "Briefcase"),
       MediaName(name: "User Collections", imageName: "Briefcase"),
       MediaName(name: "Settings", imageName: "Engineering"),
       MediaName(name: "Search", imageName: "Search")
@@ -88,7 +88,7 @@ open class KinoGoController: UICollectionViewController, UICollectionViewDelegat
         let mediaItem = items.getItem(for: indexPath)
 
         switch mediaItem.name! {
-        case "Collections":
+        case "Categories":
           performSegue(withIdentifier: CategoriesController.SegueIdentifier, sender: view)
 
         case "User Collections":
