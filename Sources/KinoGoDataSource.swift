@@ -125,36 +125,37 @@ class KinoGoDataSource: DataSource {
         items = Observable.just(adjustItems(episodes, selectedItem: selectedItem))
       }
 
+    case "Categories":
+      items = Observable.just(adjustItems(try service.getCategoriesByTheme()))
+      
+    case "Countries":
+      items = Observable.just(adjustItems(try service.getCategoriesByCountry()))
 
-      case "Categories":
-        print("Categories")
-
-//    case "Collections":
-//      let collections = try service.getCollections()
-//
-//      items = Observable.just(adjustItems(collections))
-//
-//    case "Collection":
-//      if let selectedItem = selectedItem,
-//         let path = selectedItem.id {
-//        if let data = try service.getCollection(path, page: currentPage)["movies"] as? [Any] {
-//          items = Observable.just(adjustItems(data))
-//        }
-//      }
-//
-//    case "User Collections":
-//      let collections = try service.getUserCollections()
-//
-//      items = Observable.just(adjustItems(collections))
-//
-//    case "User Collection":
-//      if let selectedItem = selectedItem,
-//         let path = selectedItem.id {
-//        if let data = try service.getUserCollection(path, page: currentPage)["movies"] as? [Any] {
-//          items = Observable.just(adjustItems(data))
-//        }
-//      }
-
+    case "Years":
+      items = Observable.just(loadYearsMenu())
+      
+    case "Category":
+      if let selectedItem = selectedItem,
+         let category = selectedItem.id?.replacingOccurrences(of: KinoGoAPI.SiteUrl, with: ""),
+        let data = try service.getMoviesByCategory(category: category, page: currentPage)["movies"] as? [Any] {
+        items = Observable.just(adjustItems(data))
+      }
+      
+    case "Country":
+      if let selectedItem = selectedItem,
+         let country = selectedItem.id?.replacingOccurrences(of: KinoGoAPI.SiteUrl, with: ""),
+         let data = try service.getMoviesByCountry(country: country, page: currentPage)["movies"] as? [Any] {
+        items = Observable.just(adjustItems(data))
+      }
+      
+    case "Year":
+      if let selectedItem = selectedItem,
+         let id = selectedItem.id,
+         let year = Int(id),
+         let data = try service.getMoviesByYear(year: year, page: currentPage)["movies"] as? [Any] {
+          items = Observable.just(adjustItems(data))
+      }
+      
     case "Search":
       if let query = params["query"] as? String {
         if !query.isEmpty {
@@ -279,6 +280,21 @@ class KinoGoDataSource: DataSource {
     }
 
     return newItem
+  }
+
+  func loadYearsMenu() -> [Item] {
+    var list = [MediaItem]()
+    
+    let date = Date()
+    let calendar = Calendar.current
+    
+    let currentYear = calendar.component(.year, from: date)
+    
+    for year in (1932...currentYear).reversed() {
+      list.append(MediaItem(name: "\(year)", id: "\(year)", imageName: ""))
+    }
+    
+    return list
   }
 
 }

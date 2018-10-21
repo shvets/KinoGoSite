@@ -38,7 +38,9 @@ open class KinoGoTableViewController: UITableViewController {
       MediaName(name: "Animations", imageName: "Retro TV"),
       MediaName(name: "Anime", imageName: "Retro TV"),
       MediaName(name: "TV Shows", imageName: "Briefcase"),
-      MediaName(name: "Categories", imageName: "Briefcase"),
+      MediaName(name: "By Categories", imageName: "Briefcase"),
+      MediaName(name: "By Countries", imageName: "Briefcase"),
+      MediaName(name: "By Years", imageName: "Briefcase"),
       MediaName(name: "Settings", imageName: "Engineering"),
       MediaName(name: "Search", imageName: "Search")
     ]
@@ -73,9 +75,15 @@ open class KinoGoTableViewController: UITableViewController {
       let mediaItem = items.getItem(for: indexPath)
 
       switch mediaItem.name! {
-        case "Categories":
+        case "By Categories":
           performSegue(withIdentifier: CategoriesTableViewController.SegueIdentifier, sender: view)
 
+        case "By Countries":
+          performSegue(withIdentifier: CountriesTableViewController.SegueIdentifier, sender: view)
+        
+        case "By Years":
+          performSegue(withIdentifier: YearsTableViewController.SegueIdentifier, sender: view)
+        
         case "Settings":
           performSegue(withIdentifier: "Settings", sender: view)
 

@@ -24,10 +24,10 @@ class YearsTableViewController: UITableViewController {
 
     self.clearsSelectionOnViewWillAppear = false
 
-#if os(iOS)
-    tableView?.backgroundView = activityIndicatorView
-    pageLoader.spinner = PlainSpinner(activityIndicatorView)
-#endif
+    #if os(iOS)
+      tableView?.backgroundView = activityIndicatorView
+      pageLoader.spinner = PlainSpinner(activityIndicatorView)
+    #endif
 
     func load() throws -> [Any] {
       var params = Parameters()
@@ -82,7 +82,7 @@ class YearsTableViewController: UITableViewController {
            let view = sender as? MediaNameTableCell,
            let indexPath = tableView?.indexPath(for: view) {
 
-          destination.params["requestType"] = "Category"
+          destination.params["requestType"] = "Year"
 
           let selectedItem = items.getItem(for: indexPath)
 

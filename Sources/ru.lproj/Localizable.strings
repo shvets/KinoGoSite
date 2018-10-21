@@ -4,8 +4,6 @@
 "Bookmarks Will Be Reset" = "Очередь Будет Очищена";
 "Please Confirm Your Choice" = "Пожалуйста Подтвердите Ваш Выбор";
 "Search Results" = "Результаты Поиска";
-//"Use Runglish?" = "Использовать Runglish?";
-//"Enter Query" = "Введите Запрос";
 
 "Bookmarks" = "Очередь";
 "History" = "История Просмотров";
@@ -19,10 +17,8 @@
 "Animations" = "Мультфильмы";
 "Anime" = "Аниме";
 "TV Shows" = "TV Передачи";
-"Categories" = "Категории";
-//"Genres" = "Жанры";
-//"Popular" = "Популярное";
+"By Categories" = "По Категориям";
+"By Countries" = "По Странам";
+"By Years" = "По Годам";
 "Movies" = "Фильмы";
 "Series" = "Сериалы";
-//"Collections" = "Подборки";
-"User Collections" = "Подборки Пользователей";

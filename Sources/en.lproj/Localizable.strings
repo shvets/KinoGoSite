@@ -4,8 +4,6 @@
 "Bookmarks Will Be Reset" = "Bookmarks Will Be Reset";
 "Please Confirm Your Choice" = "Please Confirm Your Choice";
 "Search Results" = "Search Results";
-//"Use Runglish?" = "Use Runglish?";
-//"Enter Query" = "Enter Query";
 
 "Bookmarks" = "Bookmarks";
 "History" = "History";
@@ -19,10 +17,8 @@
 "Animations" = "Animations";
 "Anime" = "Anime";
 "TV Shows" = "TV Shows";
-"Categories" = "Категории";
-//"Genres" = "Genres";
-//"Popular" = "Popular";
+"By Categories" = "By Categories";
+"By Countries" = "By Countries";
+"By Years" = "By Years";
 "Movies" = "Movies";
 "Series" = "Series";
-//"Collections" = "Collections";
-"User Collections" = "User Collections";
