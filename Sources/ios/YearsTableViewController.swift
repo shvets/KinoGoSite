@@ -2,10 +2,10 @@ import UIKit
 import TVSetKit
 import PageLoader
 
-class CategoriesTableViewController: UITableViewController {
-  static let SegueIdentifier = "Categories"
+class YearsTableViewController: UITableViewController {
+  static let SegueIdentifier = "Years"
 
-  let CellIdentifier = "CategoriesTableCell"
+  let CellIdentifier = "YearsTableCell"
 
 #if os(iOS)
   public let activityIndicatorView = UIActivityIndicatorView(activityIndicatorStyle: .gray)
@@ -16,7 +16,7 @@ class CategoriesTableViewController: UITableViewController {
   let service = KinoGoService(true)
 
   let pageLoader = PageLoader()
-  
+
   private var items = Items()
 
   override func viewDidLoad() {
@@ -24,18 +24,18 @@ class CategoriesTableViewController: UITableViewController {
 
     self.clearsSelectionOnViewWillAppear = false
 
-    #if os(iOS)
-      tableView?.backgroundView = activityIndicatorView
-      pageLoader.spinner = PlainSpinner(activityIndicatorView)
-    #endif
+#if os(iOS)
+    tableView?.backgroundView = activityIndicatorView
+    pageLoader.spinner = PlainSpinner(activityIndicatorView)
+#endif
 
     func load() throws -> [Any] {
       var params = Parameters()
-      params["requestType"] = "Categories"
+      params["requestType"] = "Years"
 
       return try self.service.dataSource.loadAndWait(params: params)
     }
-    
+
     pageLoader.loadData(onLoad: load) { result in
       if let items = result as? [Item] {
         self.items.items = items
@@ -77,23 +77,23 @@ class CategoriesTableViewController: UITableViewController {
   override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
     if let identifier = segue.identifier {
       switch identifier {
-        case MediaItemsController.SegueIdentifier:
-          if let destination = segue.destination.getActionController() as? MediaItemsController,
-             let view = sender as? MediaNameTableCell,
-              let indexPath = tableView?.indexPath(for: view) {
+      case MediaItemsController.SegueIdentifier:
+        if let destination = segue.destination.getActionController() as? MediaItemsController,
+           let view = sender as? MediaNameTableCell,
+           let indexPath = tableView?.indexPath(for: view) {
 
-            destination.params["requestType"] = "Category"
+          destination.params["requestType"] = "Category"
 
-            let selectedItem = items.getItem(for: indexPath)
+          let selectedItem = items.getItem(for: indexPath)
 
-            destination.params["selectedItem"] = selectedItem
+          destination.params["selectedItem"] = selectedItem
 
-            let configuration = service.getConfiguration();
+          let configuration = service.getConfiguration();
 
-            destination.configuration = configuration
-          }
+          destination.configuration = configuration
+        }
 
-        default: break
+      default: break
       }
     }
   }

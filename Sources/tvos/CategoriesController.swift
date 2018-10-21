@@ -4,7 +4,7 @@ import PageLoader
 
 class CategoriesController: UICollectionViewController, UICollectionViewDelegateFlowLayout {
   static let SegueIdentifier = "Categories"
-  let CellIdentifier = "CollectionsCell"
+  let CellIdentifier = "CategoriesCell"
 
 #if os(tvOS)
   public let activityIndicatorView = UIActivityIndicatorView(activityIndicatorStyle: .whiteLarge)
@@ -106,7 +106,7 @@ class CategoriesController: UICollectionViewController, UICollectionViewDelegate
              let view = sender as? MediaNameCell,
              let indexPath = collectionView?.indexPath(for: view) {
 
-            destination.params["requestType"] = "Collection"
+            destination.params["requestType"] = "Category"
             destination.params["selectedItem"] = items.getItem(for: indexPath)
             destination.configuration = service.getConfiguration()
 

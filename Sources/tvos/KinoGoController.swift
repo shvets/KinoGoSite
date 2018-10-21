@@ -45,13 +45,14 @@ open class KinoGoController: UICollectionViewController, UICollectionViewDelegat
       MediaName(name: "Bookmarks", imageName: "Star"),
       MediaName(name: "History", imageName: "Bookmark"),
       MediaName(name: "All Movies", imageName: "Retro TV"),
-      MediaName(name: "New Movies", imageName: "Retro TV"),
+      MediaName(name: "Premier Movies", imageName: "Retro TV"),
+      MediaName(name: "Last Movies", imageName: "Retro TV"),
       MediaName(name: "All Series", imageName: "Retro TV"),
       MediaName(name: "Animations", imageName: "Retro TV"),
       MediaName(name: "Anime", imageName: "Retro TV"),
-      MediaName(name: "Shows", imageName: "Briefcase"),
+      MediaName(name: "TV Shows", imageName: "Briefcase"),
       MediaName(name: "Categories", imageName: "Briefcase"),
-      MediaName(name: "User Collections", imageName: "Briefcase"),
+      MediaName(name: "Categories", imageName: "Briefcase"),
       MediaName(name: "Settings", imageName: "Engineering"),
       MediaName(name: "Search", imageName: "Search")
     ]
@@ -90,9 +91,6 @@ open class KinoGoController: UICollectionViewController, UICollectionViewDelegat
         switch mediaItem.name! {
         case "Categories":
           performSegue(withIdentifier: CategoriesController.SegueIdentifier, sender: view)
-
-        case "User Collections":
-          performSegue(withIdentifier: UserCollectionsController.SegueIdentifier, sender: view)
 
         case "Settings":
           performSegue(withIdentifier: "Settings", sender: view)

@@ -52,8 +52,8 @@ class KinoGoMediaItem: MediaItem {
   override func getRequestHeaders() -> [String: String] {
     var headers: [String : String] = [:]
     
-    headers["Cookie"] = "cdn1.kinogo.by-UID=e542b6bdfdd1e1e0775516eeded40d37"
-    
+    headers["Cookie"] = service.getCookie(url: self.id!)
+
     return headers
   }
 

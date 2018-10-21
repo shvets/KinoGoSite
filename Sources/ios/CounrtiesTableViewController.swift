@@ -2,10 +2,10 @@ import UIKit
 import TVSetKit
 import PageLoader
 
-class UserCollectionsTableViewController: UITableViewController {
-  static let SegueIdentifier = "User Collections"
+class CountriesTableViewController: UITableViewController {
+  static let SegueIdentifier = "Countries"
 
-  let CellIdentifier = "UserCollectionsTableCell"
+  let CellIdentifier = "CountriesTableCell"
 
 #if os(iOS)
   public let activityIndicatorView = UIActivityIndicatorView(activityIndicatorStyle: .gray)
@@ -31,7 +31,7 @@ class UserCollectionsTableViewController: UITableViewController {
 
     func load() throws -> [Any] {
       var params = Parameters()
-      params["requestType"] = "User Collections"
+      params["requestType"] = "Countries"
 
       return try self.service.dataSource.loadAndWait(params: params)
     }
@@ -61,9 +61,6 @@ class UserCollectionsTableViewController: UITableViewController {
 
       cell.configureCell(item: item, localizedName: localizer.getLocalizedName(item.name))
 
-//      let longPressRecognizer = UILongPressGestureRecognizer(target: self, action: #selector(self.longPressed(_:)))
-//      tableView.addGestureRecognizer(longPressRecognizer)
-
       return cell
     }
     else {
@@ -85,10 +82,15 @@ class UserCollectionsTableViewController: UITableViewController {
            let view = sender as? MediaNameTableCell,
            let indexPath = tableView?.indexPath(for: view) {
 
-          destination.params["requestType"] = "User Collection"
-          destination.params["selectedItem"] = items.getItem(for: indexPath)
+          destination.params["requestType"] = "Category"
 
-          destination.configuration = service.getConfiguration()
+          let selectedItem = items.getItem(for: indexPath)
+
+          destination.params["selectedItem"] = selectedItem
+
+          let configuration = service.getConfiguration();
+
+          destination.configuration = configuration
         }
 
       default: break

@@ -7,8 +7,8 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		2DBA11E477F5EA59B197F874 /* UserCollectionsController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2DBA1FEA2A836B2A1C3E5854 /* UserCollectionsController.swift */; };
-		2DBA1EE98FC63963BFB59B35 /* UserCollectionsTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2DBA1DB4D6978460D0D1F83D /* UserCollectionsTableViewController.swift */; };
+		2DBA1030036586B45583B1E1 /* YearsTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2DBA1424BE8703AE6E283C02 /* YearsTableViewController.swift */; };
+		2DBA10EBC012DFD0BC84E387 /* CountiesTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2DBA160096509144144CE21A /* CountiesTableViewController.swift */; };
 		FA6C12871EB04B9800DA4A90 /* Alamofire.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = FA6C12861EB04B9800DA4A90 /* Alamofire.framework */; };
 		FAAAE40820D3413B00F1FF4C /* KinoGoMediaItem.swift in Sources */ = {isa = PBXBuildFile; fileRef = FAAAE40520D3413B00F1FF4C /* KinoGoMediaItem.swift */; };
 		FAAAE40920D3413B00F1FF4C /* KinoGoDataSource.swift in Sources */ = {isa = PBXBuildFile; fileRef = FAAAE40620D3413B00F1FF4C /* KinoGoDataSource.swift */; };
@@ -29,11 +29,12 @@
 		FAAFE5091EA6E2C20092387A /* SettingsController.swift in Sources */ = {isa = PBXBuildFile; fileRef = FAAFE5011EA6E2C10092387A /* SettingsController.swift */; };
 		FAAFE5171EA6E2CC0092387A /* CategoriesTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = FAAFE50F1EA6E2CC0092387A /* CategoriesTableViewController.swift */; };
 		FAAFE5191EA6E2CC0092387A /* SettingsTableController.swift in Sources */ = {isa = PBXBuildFile; fileRef = FAAFE5111EA6E2CC0092387A /* SettingsTableController.swift */; };
+		FAC1378F217BAAE000836DCA /* CollectionsController.swift in Sources */ = {isa = PBXBuildFile; fileRef = FAC1378E217BAAE000836DCA /* CollectionsController.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
-		2DBA1DB4D6978460D0D1F83D /* UserCollectionsTableViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UserCollectionsTableViewController.swift; sourceTree = "<group>"; };
-		2DBA1FEA2A836B2A1C3E5854 /* UserCollectionsController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UserCollectionsController.swift; sourceTree = "<group>"; };
+		2DBA1424BE8703AE6E283C02 /* YearsTableViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = YearsTableViewController.swift; sourceTree = "<group>"; };
+		2DBA160096509144144CE21A /* CountiesTableViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CountiesTableViewController.swift; sourceTree = "<group>"; };
 		FA6C12861EB04B9800DA4A90 /* Alamofire.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Alamofire.framework; path = "../../../../../../../Library/Developer/Xcode/DerivedData/EtvnetApp-auvgeykttffxrlaelzqpbfeqnwis/Build/Products/Debug-iphoneos/Alamofire.framework"; sourceTree = "<group>"; };
 		FA9BF82E1EA3F1DE002F7D52 /* KinoGoSite.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = KinoGoSite.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		FA9BF8321EA3F1DE002F7D52 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
@@ -58,6 +59,7 @@
 		FAAFE5011EA6E2C10092387A /* SettingsController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SettingsController.swift; sourceTree = "<group>"; };
 		FAAFE50F1EA6E2CC0092387A /* CategoriesTableViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CategoriesTableViewController.swift; sourceTree = "<group>"; };
 		FAAFE5111EA6E2CC0092387A /* SettingsTableController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SettingsTableController.swift; sourceTree = "<group>"; };
+		FAC1378E217BAAE000836DCA /* CollectionsController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CollectionsController.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -134,7 +136,8 @@
 				FAAAE40D20D3416D00F1FF4C /* KinoGoTableViewController.swift */,
 				FAAFE50F1EA6E2CC0092387A /* CategoriesTableViewController.swift */,
 				FAAFE5111EA6E2CC0092387A /* SettingsTableController.swift */,
-				2DBA1DB4D6978460D0D1F83D /* UserCollectionsTableViewController.swift */,
+				2DBA1424BE8703AE6E283C02 /* YearsTableViewController.swift */,
+				2DBA160096509144144CE21A /* CountiesTableViewController.swift */,
 			);
 			path = ios;
 			sourceTree = "<group>";
@@ -145,7 +148,7 @@
 				FAAAE40B20D3415A00F1FF4C /* KinoGoController.swift */,
 				FAAFE4FE1EA6E2C10092387A /* CategoriesController.swift */,
 				FAAFE5011EA6E2C10092387A /* SettingsController.swift */,
-				2DBA1FEA2A836B2A1C3E5854 /* UserCollectionsController.swift */,
+				FAC1378E217BAAE000836DCA /* CollectionsController.swift */,
 			);
 			path = tvos;
 			sourceTree = "<group>";
@@ -237,14 +240,15 @@
 				FAAFE5091EA6E2C20092387A /* SettingsController.swift in Sources */,
 				FAAFE5171EA6E2CC0092387A /* CategoriesTableViewController.swift in Sources */,
 				FAAFE5191EA6E2CC0092387A /* SettingsTableController.swift in Sources */,
+				FAC1378F217BAAE000836DCA /* CollectionsController.swift in Sources */,
 				FAAAE40920D3413B00F1FF4C /* KinoGoDataSource.swift in Sources */,
 				FAAAE40A20D3413B00F1FF4C /* KinoGoService.swift in Sources */,
 				FAAFE5061EA6E2C20092387A /* CategoriesController.swift in Sources */,
 				FAAAE40820D3413B00F1FF4C /* KinoGoMediaItem.swift in Sources */,
 				FAAAE40C20D3415A00F1FF4C /* KinoGoController.swift in Sources */,
 				FAAAE41220D341A600F1FF4C /* KinoGoSite.swift in Sources */,
-				2DBA11E477F5EA59B197F874 /* UserCollectionsController.swift in Sources */,
-				2DBA1EE98FC63963BFB59B35 /* UserCollectionsTableViewController.swift in Sources */,
+				2DBA1030036586B45583B1E1 /* YearsTableViewController.swift in Sources */,
+				2DBA10EBC012DFD0BC84E387 /* CountiesTableViewController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

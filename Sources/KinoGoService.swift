@@ -29,7 +29,7 @@ public class KinoGoService {
   func buildLayout() -> UICollectionViewFlowLayout? {
     let layout = UICollectionViewFlowLayout()
 
-    layout.itemSize = CGSize(width: 220*1.6, height: 303*1.6) // 220 x 303
+    layout.itemSize = CGSize(width: 220*1.25, height: 303*1.25) // 220 x 303
     layout.sectionInset = UIEdgeInsets(top: 40.0, left: 40.0, bottom: 120.0, right: 40.0)
     layout.minimumInteritemSpacing = 40.0
     layout.minimumLineSpacing = 85.0
@@ -52,7 +52,7 @@ public class KinoGoService {
       conf["rowSize"] = 1
     }
     else {
-      conf["rowSize"] = 5
+      conf["rowSize"] = 6
     }
 
     conf["mobile"] = mobile

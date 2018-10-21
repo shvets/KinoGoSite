@@ -256,8 +256,8 @@ class KinoGoDataSource: DataSource {
   func createEpisodeItem(_ item: KinoGoAPI.Episode, selectedItem: MediaItem) -> Item {
     let newItem = KinoGoMediaItem(data: ["name": ""])
 
-    newItem.name = item.comment
-    newItem.id = item.files[0]
+    newItem.name = item.name
+    newItem.id = selectedItem.id
     newItem.type = "episode"
     newItem.files = item.files
         
