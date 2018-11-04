@@ -81,34 +81,20 @@ class KinoGoDataSource: DataSource {
         seasons = try service.getSeasons(path, selectedItem.name!, selectedItem.thumb)
 
         let pageSize = params["pageSize"] as! Int
-        
-        items = Observable.just(adjustItems(seasons, selectedItem: selectedItem))
-        
-        var seasonsOnPage: [KinoGoAPI.Season] = []
-        
-        for (index, item) in seasons.enumerated() {
-          if index >= (currentPage - 1) * pageSize && index < currentPage * pageSize {
-            seasonsOnPage.append(item)
-          }
-        }
-        
-        items = Observable.just(adjustItems(seasonsOnPage, selectedItem: selectedItem))
+
+        let paginatedItems = paginated(items: seasons, currentPage: currentPage, pageSize: pageSize)
+
+        items = Observable.just(adjustItems(paginatedItems, selectedItem: selectedItem))
       }
 
     case "Episodes":
       if let selectedItem = selectedItem {
          let pageSize = params["pageSize"] as! Int
         let episodes = (selectedItem as! KinoGoMediaItem).episodes
-        
-        var episodesOnPage: [KinoGoAPI.Episode] = []
-        
-        for (index, item) in episodes.enumerated() {
-          if index >= (currentPage - 1) * pageSize && index < currentPage * pageSize {
-            episodesOnPage.append(item)
-          }
-        }
 
-        items = Observable.just(adjustItems(episodesOnPage, selectedItem: selectedItem))
+        let paginatedItems = paginated(items: episodes, currentPage: currentPage, pageSize: pageSize)
+
+        items = Observable.just(adjustItems(paginatedItems, selectedItem: selectedItem))
       }
 
     case "Categories":
