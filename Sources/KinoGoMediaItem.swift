@@ -52,7 +52,12 @@ class KinoGoMediaItem: MediaItem {
   override func getRequestHeaders() -> [String: String] {
     var headers: [String : String] = [:]
     
-    headers["Cookie"] = service.getCookie(url: self.id!)
+    //headers["Cookie"] = service.getCookie(url: self.id!)
+//    headers["upgrade-insecure-requests"] = "1"
+//    headers["user-agent"] = "Mozilla/5.0 (Macintosh; Intel Mac OS X 10_14_0) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/70.0.3538.77 Safari/537.36]"
+//    headers["DNT"] = "1"
+//    headers["Host"] = "kinogo.by"
+//    headers["Referer"] = "https://kinogo.by/serial/"
 
     return headers
   }
