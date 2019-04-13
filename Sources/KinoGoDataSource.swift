@@ -169,6 +169,11 @@ class KinoGoDataSource: DataSource {
         createEpisodeItem(item as! KinoGoAPI.Episode, selectedItem: selectedItem!)
       }
     }
+    else if let items = items as? [KinoGoAPI.File] {
+      newItems = transform(items) { item in
+        createFileItem(item as! KinoGoAPI.File, selectedItem: selectedItem!)
+      }
+    }
     else if let items = items as? [[String: Any]] {
       newItems = transform(items) { item in
         createMediaItem(item as! [String: Any])
@@ -221,7 +226,7 @@ class KinoGoDataSource: DataSource {
     }
     
     newItem.seasonNumber = seasonNumber
-    newItem.episodes = item.playlist
+    newItem.episodes = item.folder
 
     return newItem
   }
@@ -238,6 +243,21 @@ class KinoGoDataSource: DataSource {
       newItem.thumb = thumb
     }
 
+    return newItem
+  }
+  
+  func createFileItem(_ item: KinoGoAPI.File, selectedItem: MediaItem) -> Item {
+    let newItem = KinoGoMediaItem(data: ["name": ""])
+    
+    newItem.name = item.name
+    newItem.id = selectedItem.id
+    newItem.type = "episode"
+    newItem.files = item.urls()
+    
+    if let thumb = selectedItem.thumb {
+      newItem.thumb = thumb
+    }
+    
     return newItem
   }
 

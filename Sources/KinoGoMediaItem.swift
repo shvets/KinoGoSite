@@ -5,7 +5,7 @@ import TVSetKit
 class KinoGoMediaItem: MediaItem {
   let service = KinoGoService.shared
 
-  var episodes = [KinoGoAPI.Episode]()
+  var episodes = [KinoGoAPI.File]()
   var files = [String]()
 
   public override init(data: [String: String]) {
