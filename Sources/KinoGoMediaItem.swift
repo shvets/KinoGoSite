@@ -50,7 +50,7 @@ class KinoGoMediaItem: MediaItem {
   }
   
   override func getRequestHeaders() -> [String: String] {
-    var headers: [String : String] = [:]
+    let headers: [String : String] = [:]
     
     //headers["Cookie"] = service.getCookie(url: self.id!)
 //    headers["upgrade-insecure-requests"] = "1"

@@ -8,7 +8,7 @@ class CountriesTableViewController: UITableViewController {
   let CellIdentifier = "CountriesTableCell"
 
 #if os(iOS)
-  public let activityIndicatorView = UIActivityIndicatorView(activityIndicatorStyle: .gray)
+  public let activityIndicatorView = UIActivityIndicatorView(style: .gray)
 #endif
 
   let localizer = Localizer(KinoGoService.BundleId, bundleClass: KinoGoSite.self)
