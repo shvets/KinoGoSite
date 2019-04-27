@@ -7,7 +7,7 @@ class YearsController: UICollectionViewController, UICollectionViewDelegateFlowL
   let CellIdentifier = "YearsCell"
 
 #if os(tvOS)
-  public let activityIndicatorView = UIActivityIndicatorView(activityIndicatorStyle: .whiteLarge)
+    public let activityIndicatorView = UIActivityIndicatorView(style: .whiteLarge)
 #endif
 
   let localizer = Localizer(KinoGoService.BundleId, bundleClass: KinoGoSite.self)
