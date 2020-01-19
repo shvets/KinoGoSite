@@ -33,7 +33,7 @@ class CategoriesTableViewController: UITableViewController {
       var params = Parameters()
       params["requestType"] = "Categories"
 
-      return try self.service.dataSource.loadAndWait(params: params)
+      return try self.service.dataSource.load(params: params)
     }
     
     pageLoader.loadData(onLoad: load) { result in

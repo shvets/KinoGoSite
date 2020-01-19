@@ -1,15 +1,14 @@
 import SwiftSoup
-import WebAPI
+import MediaApis
 import TVSetKit
-import RxSwift
 
 class KinoGoDataSource: DataSource {
   let service = KinoGoService.shared
 
   var seasons = [KinoGoAPI.Season]()
   
-  override open func load(params: Parameters) throws -> Observable<[Any]> {
-    var items: Observable<[Any]> = Observable.just([])
+  override open func load(params: Parameters) throws -> [Any] {
+    var items: [Any] = []
 
     let selectedItem = params["selectedItem"] as? MediaItem
 
@@ -28,52 +27,53 @@ class KinoGoDataSource: DataSource {
       if let bookmarksManager = params["bookmarksManager"] as? BookmarksManager,
          let bookmarks = bookmarksManager.bookmarks {
         let data = bookmarks.getBookmarks(pageSize: 60, page: currentPage)
-
-        items = Observable.just(adjustItems(data))
+        bookmarks.load()
+        items = adjustItems(data)
       }
 
     case "History":
       if let historyManager = params["historyManager"] as? HistoryManager,
          let history = historyManager.history {
+        history.load()
         let data = history.getHistoryItems(pageSize: 60, page: currentPage)
 
-        items = Observable.just(adjustItems(data))
+        items = adjustItems(data)
       }
 
     case "All Movies":
-      if let data = try service.getAllMovies(page: currentPage)["movies"] as? [Any] {
-        items = Observable.just(adjustItems(data))
-      }
+      let data = try service.getAllMovies(page: currentPage).items
+      
+      items = adjustItems(data)
 
     case "Premier Movies":
-      if let data = try service.getPremierMovies(page: currentPage)["movies"] as? [Any] {
-        items = Observable.just(adjustItems(data))
-      }
+      let data = try service.getPremierMovies(page: currentPage).items
+      
+      items = adjustItems(data)
       
     case "Last Movies":
-      if let data = try service.getLastMovies(page: currentPage)["movies"] as? [Any] {
-        items = Observable.just(adjustItems(data))
-      }
+      let data = try service.getLastMovies(page: currentPage).items
+    
+      items = adjustItems(data)
 
     case "All Series":
-      if let data = try service.getAllSeries(page: currentPage)["movies"] as? [Any] {
-        items = Observable.just(adjustItems(data))
-      }
+      let data = try service.getAllSeries(page: currentPage).items
+      
+      items = adjustItems(data)
 
     case "Animations":
-      if let data = try service.getAnimations(page: currentPage)["movies"] as? [Any] {
-        items = Observable.just(adjustItems(data))
-      }
+      let data = try service.getAnimations(page: currentPage).items
+   
+      items = adjustItems(data)
 
     case "Anime":
-      if let data = try service.getAnime(page: currentPage)["movies"] as? [Any] {
-        items = Observable.just(adjustItems(data))
-      }
+      let data = try service.getAnime(page: currentPage).items
+  
+      items = adjustItems(data)
 
     case "TV Shows":
-      if let data = try service.getTvShows(page: currentPage)["movies"] as? [Any] {
-        items = Observable.just(adjustItems(data))
-      }
+      let data = try service.getTvShows(page: currentPage).items
+      
+      items = adjustItems(data)
 
     case "Seasons":
       if let selectedItem = selectedItem,
@@ -84,7 +84,7 @@ class KinoGoDataSource: DataSource {
 
         let paginatedItems = paginated(items: seasons, currentPage: currentPage, pageSize: pageSize)
 
-        items = Observable.just(adjustItems(paginatedItems, selectedItem: selectedItem))
+        items = adjustItems(paginatedItems, selectedItem: selectedItem)
       }
 
     case "Episodes":
@@ -94,51 +94,51 @@ class KinoGoDataSource: DataSource {
 
         let paginatedItems = paginated(items: episodes, currentPage: currentPage, pageSize: pageSize)
 
-        items = Observable.just(adjustItems(paginatedItems, selectedItem: selectedItem))
+        items = adjustItems(paginatedItems, selectedItem: selectedItem)
       }
 
     case "Categories":
-      items = Observable.just(adjustItems(try service.getCategoriesByTheme()))
+      items = adjustItems(try service.getCategoriesByTheme())
       
     case "Countries":
-      items = Observable.just(adjustItems(try service.getCategoriesByCountry()))
+      items = adjustItems(try service.getCategoriesByCountry())
 
     case "Years":
-      items = Observable.just(loadYearsMenu())
+      items = loadYearsMenu()
       
     case "Category":
       if let selectedItem = selectedItem,
-         let category = selectedItem.id?.replacingOccurrences(of: KinoGoAPI.SiteUrl, with: ""),
-        let data = try service.getMoviesByCategory(category: category, page: currentPage)["movies"] as? [Any] {
-        items = Observable.just(adjustItems(data))
+        let category = selectedItem.id?.replacingOccurrences(of: KinoGoAPI.SiteUrl, with: "") {
+        let data = try service.getMoviesByCategory(category: category, page: currentPage).items
+        items = adjustItems(data)
       }
       
     case "Country":
       if let selectedItem = selectedItem,
-         let country = selectedItem.id?.replacingOccurrences(of: KinoGoAPI.SiteUrl, with: ""),
-         let data = try service.getMoviesByCountry(country: country, page: currentPage)["movies"] as? [Any] {
-        items = Observable.just(adjustItems(data))
+         let country = selectedItem.id?.replacingOccurrences(of: KinoGoAPI.SiteUrl, with: "") {
+        let data = try service.getMoviesByCountry(country: country, page: currentPage).items
+        items = adjustItems(data)
       }
       
     case "Year":
       if let selectedItem = selectedItem,
          let id = selectedItem.id,
-         let year = Int(id),
-         let data = try service.getMoviesByYear(year: year, page: currentPage)["movies"] as? [Any] {
-          items = Observable.just(adjustItems(data))
+         let year = Int(id) {
+        let data = try service.getMoviesByYear(year: year, page: currentPage).items
+        items = adjustItems(data)
       }
       
     case "Search":
       if let query = params["query"] as? String {
         if !query.isEmpty {
-          if let data = try service.search(query, page: currentPage)["movies"] as? [Any] {
-            items = Observable.just(adjustItems(data))
-          }
+          let data = try service.search(query, page: currentPage).items
+          
+          items = adjustItems(data)
         }
       }
 
     default:
-      items = Observable.just([])
+      items = []
     }
 
     return items

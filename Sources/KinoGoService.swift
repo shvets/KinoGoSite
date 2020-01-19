@@ -1,5 +1,5 @@
-import WebAPI
 import TVSetKit
+import MediaApis
 
 public class KinoGoService {
   static let shared: KinoGoAPI = {
